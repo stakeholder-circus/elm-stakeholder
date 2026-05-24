@@ -1,14 +1,13 @@
 # First push families
 
-This repository is scaffold-only for the Elm HorizonLanguage target. It contains baseline coordination files only. No deterministic runtime validation is claimed.
+This local tranche ports the deterministic family-focus contract into an Elm worker runtime with a Node CLI bridge.
 
-## Horizon target
+| Family group | Elm path | Source reference | Parity class |
+| --- | --- | --- | --- |
+| classic-six | `src/Main.elm` | current deterministic CLI family registry and smoke-contract shape | dedicated |
+| modern-core | `src/Main.elm` | current deterministic CLI family registry and smoke-contract shape | dedicated |
+| later families | `src/Main.elm` | grouped fallback policy in current deterministic repos | grouped fallback |
+| CLI contract | `src/Main.elm`, `bin/stakeholder.mjs`, `tests/test_cli.sh` | small-tranche smoke contract | deterministic |
+| experimental provider | `src/Main.elm`, `tests/test_cli.sh` | fail-fast provider policy in current deterministic repos | explicit fail-fast |
 
-- Language id: elm
-- Display name: Elm
-- Horizon status: future-wave
-- Target class: parity-target
-- Repository: elm-stakeholder
-## Scaffold scope
-
-Traceability status: scaffold-only. First-push family ownership, source audit rows, fixture requirements, and deterministic validation evidence must be supplied before implementation claims.
+Rust and Java remain canonical behavioral anchors; this Elm tranche is local-only and native-validated.

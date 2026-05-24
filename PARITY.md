@@ -1,14 +1,16 @@
 # Parity
 
-This repository is scaffold-only for the Elm HorizonLanguage target. It contains baseline coordination files only. No deterministic runtime validation is claimed.
+Parity classification: deterministic first tranche, native-validated local only.
 
-## Horizon target
+## Implemented
 
-- Language id: elm
-- Display name: Elm
-- Horizon status: future-wave
-- Target class: parity-target
-- Repository: elm-stakeholder
-## Scaffold scope
+- CLI flags: `--list-values`, `--focus-family`, `--output-format`, `--seed`, `--experimental-provider`.
+- Normalized JSON event fields: `eventType`, `sequence`, `family`, `message`, `timestamp`, `context`, `generationProvenance`, `outputFormat`.
+- Full dedicated `classic-six + modern-core` family set.
+- Grouped fallback for later generator families.
 
-Parity classification: scaffold-only placeholder. No Rust behavior has been ported, no Java comparison has been completed here, and no deterministic runtime validation is claimed.
+## Deferred
+
+- Docker validation.
+- Full live-provider/runtime support.
+- Publication governance.
