@@ -1,5 +1,8 @@
 FROM node:24-bookworm-slim AS build
-RUN npm install --global elm@0.19.2-0
+RUN apt-get update \
+    && apt-get install --yes --no-install-recommends ca-certificates \
+    && find /var/lib/apt/lists -mindepth 1 -delete \
+    && npm install --global elm@0.19.1-6
 WORKDIR /app
 COPY elm.json elm.json
 COPY src src
