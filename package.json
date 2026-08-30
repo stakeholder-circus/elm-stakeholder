@@ -1,0 +1,10 @@
+{
+  "name": "elm-stakeholder-toolchain",
+  "private": true,
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "elm": "0.19.1-6"
+  }
+}
