@@ -1,14 +1,5 @@
 # Gaps
 
-## Closed in this tranche
+Closed: scaffold status, classic-six + modern-core depth, grouped fallbacks, provider fail-fast, Elm/Node native tests, Docker, type-check, dependency, and workflow-security gates.
 
-- Scaffold-only status replaced with a native Elm deterministic worker and CLI runner.
-- Dedicated `classic-six + modern-core` families implemented.
-- Later families use explicit grouped fallback renderers.
-- Experimental provider flags fail fast.
-
-## Remaining gaps
-
-- Docker validation is deferred for M1 resource safety.
-- Full live-provider/runtime support is deferred to the provider rollout wave.
-- Remote publication and required-check binding are not started.
+Remaining: full live-provider/runtime support.

@@ -1,13 +1,13 @@
-name: Scaffold CI
-
-on:
-  push:
-  pull_request:
-
+name: contract
+on: [workflow_dispatch, push, pull_request]
+permissions:
+  contents: read
 jobs:
-  scaffold:
+  contract:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - name: Scaffold-only status
-        run: |
-          echo "scaffold-only CI placeholder; no deterministic runtime validation is claimed"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: python3 scripts/validate_scaffold.py
