@@ -1,4 +1,22 @@
-# Docker validation is intentionally deferred for this M1-safe local Elm tranche.
-# The native validation lane uses Homebrew Elm plus local Node on macOS.
-FROM alpine:3.20
-CMD ["sh", "-c", "echo 'Docker validation deferred for elm-stakeholder'; exit 1"]
+FROM node:24-bookworm-slim AS build
+RUN apt-get update \
+    && apt-get install --yes --no-install-recommends ca-certificates \
+    && find /var/lib/apt/lists -mindepth 1 -delete
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY elm.json elm.json
+COPY src src
+COPY bin bin
+COPY tests tests
+COPY Makefile Makefile
+RUN mkdir -p dist \
+    && ./node_modules/.bin/elm make src/Main.elm --output=dist/stakeholder.js \
+    && NODE=node BIN=bin/stakeholder.mjs tests/test_cli.sh
+FROM node:24-bookworm-slim
+WORKDIR /app
+COPY --from=build /app/dist dist
+COPY --from=build /app/bin bin
+USER node
+ENTRYPOINT ["node", "bin/stakeholder.mjs"]
+CMD ["--list-values"]

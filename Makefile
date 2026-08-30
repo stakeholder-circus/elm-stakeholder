@@ -1,13 +1,15 @@
 ELM ?= elm
 NODE ?= node
 
-.PHONY: all compiler-proof build test clean
-
+.PHONY: all compiler-proof analyze build test
 all: build
 
 compiler-proof:
 	$(ELM) --version
 	$(NODE) --version
+
+analyze:
+	$(ELM) make src/Main.elm --output=/tmp/elm-stakeholder-analyze.js
 
 build:
 	mkdir -p dist
@@ -15,6 +17,3 @@ build:
 
 test: build
 	NODE=$(NODE) BIN=bin/stakeholder.mjs tests/test_cli.sh
-
-clean:
-	rm -rf dist elm-stuff

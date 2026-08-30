@@ -1,14 +1,8 @@
 # Repository agent instructions
 
-This repository is scaffold-only for the Elm HorizonLanguage target. It contains baseline coordination files only. No deterministic runtime validation is claimed.
+This repository contains the published Elm worker plus Node bridge deterministic runtime.
 
-## Horizon target
-
-- Language id: elm
-- Display name: Elm
-- Horizon status: future-wave
-- Target class: parity-target
-- Repository: elm-stakeholder
-## Scaffold scope
-
-Operate this repo as scaffold-only. Do not infer runtime parity, deterministic execution, or validated behavior from these files. Future implementation work must add traceability before changing behavior.
+- Preserve the CLI, port, and normalized JSON contract.
+- Keep full dedicated classic-six + modern-core behavior and grouped fallbacks.
+- Keep provider flags fail-fast until the provider rollout reaches Elm.
+- Validate both Elm compilation and Node port execution; Docker is the portable runtime gate.

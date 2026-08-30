@@ -1,13 +1,6 @@
 # Toolchain
 
-Elm native validation uses Homebrew `elm` plus an existing local Node runtime for the port runner.
-
-## Proven commands
-
-- `elm --version`
-- `node --version`
-- `elm make src/Main.elm --output=dist/stakeholder.js`
-- `make compiler-proof`
-- `make test`
-
-Toolchain source: Homebrew bottled `elm` 0.19.1 and existing Node. Docker, Nix, and npm packages are not required for the current deterministic first tranche.
+- Native CI: pinned actions/setup-node v6, Node 24, and lockfile-backed elm npm package 0.19.1-6 installed with npm ci.
+- Docker: Node 24 Bookworm multi-stage build, non-root final runtime.
+- macOS feedback may use Homebrew Elm and local Node.
+- GitHub and Docker provide release evidence; Nix remains a development-shell surface.

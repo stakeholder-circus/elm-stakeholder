@@ -1,16 +1,7 @@
 # Parity
 
-Parity classification: deterministic first tranche, native-validated local only.
+Classification: published deterministic first tranche.
 
-## Implemented
+Implemented: canonical CLI and JSON contract, dedicated classic-six + modern-core, grouped later-family fallbacks, Elm worker ports, Node CLI execution, native and Docker validation.
 
-- CLI flags: `--list-values`, `--focus-family`, `--output-format`, `--seed`, `--experimental-provider`.
-- Normalized JSON event fields: `eventType`, `sequence`, `family`, `message`, `timestamp`, `context`, `generationProvenance`, `outputFormat`.
-- Full dedicated `classic-six + modern-core` family set.
-- Grouped fallback for later generator families.
-
-## Deferred
-
-- Docker validation.
-- Full live-provider/runtime support.
-- Publication governance.
+Deferred: full live-provider/runtime support.

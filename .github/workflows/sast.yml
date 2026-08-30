@@ -1,9 +1,14 @@
-name: ci-native
-on: [workflow_dispatch, push, pull_request]
+name: sast
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+  schedule:
+    - cron: '37 4 * * 1'
 permissions:
   contents: read
 jobs:
-  native:
+  elm-typecheck:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -16,6 +21,4 @@ jobs:
         with:
           node-version: 24
       - run: npm ci
-      - run: make compiler-proof
       - run: make analyze
-      - run: make test
